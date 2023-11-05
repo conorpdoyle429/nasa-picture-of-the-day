@@ -17,3 +17,10 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+/** Picture of the day */
+Route::group(['prefix' => 'pictures'], function () {
+    Route::get('/day', 'PictureController@getPicture')->name('picture.day');
+    Route::get('/date-range', 'PictureController@getPictureForDateRange')->name('picture.range');
+    Route::get('/random', 'PictureController@getRandomPictures')->name('picture.random');
+  });
