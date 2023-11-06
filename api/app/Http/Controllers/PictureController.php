@@ -45,6 +45,7 @@ class PictureController extends Controller
      */
     public function getRandomPictures(Request $request): Response
     {
+        // dd('here');
         $count = $request->get('count');
         return Http::get(self::URL, [
             'count' => $count,
