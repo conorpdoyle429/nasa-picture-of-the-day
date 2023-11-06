@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import Button from "@mui/material/Button";
 import PictureDatePicker from "./PictureDatePicker";
 import PictureNumberInput from "./PictureNumberInput";
 import PictureRadioGroup from "./PictureRadioGroup";
@@ -22,6 +23,9 @@ export default function Picture() {
     <>
       <PictureRadioGroup apiChoice={apiChoice} setApiChoice={setApiChoice} />
       {input}
+      <Button style={{margin: "10px"}} variant="outlined">
+        Submit
+      </Button>
     </>
   );
 }
