@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PictureController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -20,7 +21,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 /** Picture of the day */
 Route::group(['prefix' => 'pictures'], function () {
-    Route::get('/day', 'PictureController@getPicture')->name('picture.day');
-    Route::get('/date-range', 'PictureController@getPictureForDateRange')->name('picture.range');
-    Route::get('/random', 'PictureController@getRandomPictures')->name('picture.random');
+    Route::get('/day', 'App\Http\Controllers\PictureController@getPicture')->name('picture.day');
+    Route::get('/date-range', 'App\Http\Controllers\PictureController@getPictureForDateRange')->name('picture.range');
+    Route::get('/random', 'App\Http\Controllers\PictureController@getRandomPictures')->name('picture.random');
 });

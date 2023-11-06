@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Http;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
+use Illuminate\Http\Client\Response;
 
 class PictureController extends Controller
 {
@@ -12,9 +13,7 @@ class PictureController extends Controller
 
     public const NASA_KEY = 'gCPcRJcKxsfhpk7qLGFUoVN2sxd6RcdqkY5El5KZ';
 
-    /**
-     * Get a picture of the day for a specified day.
-     */
+    /** Get a picture of the day for a specified day. */
     public function getPicture(Request $request): Response
     {
         $date = $request->get('date');
@@ -24,9 +23,7 @@ class PictureController extends Controller
         ]);
     }
 
-    /**
-     * Get a picture of the day for a specified date range.
-     */
+    /** Get a picture of the day for a specified date range. */
     public function getPictureForDateRange(Request $request): Response
     {
         $startDate = $request->get('startDate');
@@ -38,14 +35,9 @@ class PictureController extends Controller
         ]);
     }
 
-    /**
-     * Get a specified amount of random picture of the days.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    /** Get a specified amount of random picture of the days. */
     public function getRandomPictures(Request $request): Response
     {
-        // dd('here');
         $count = $request->get('count');
         return Http::get(self::URL, [
             'count' => $count,
