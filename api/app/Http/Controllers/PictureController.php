@@ -30,8 +30,8 @@ class PictureController extends Controller
         $startDate = $request->get('startDate');
         $endDate = $request->get('endDate');
         return Http::get(self::URL, [
-            'startDate' => $startDate,
-            'endDate' => $endDate,
+            'start_date' => $startDate,
+            'end_date' => $endDate,
             'api_key' => self::NASA_KEY,
         ]);
     }
